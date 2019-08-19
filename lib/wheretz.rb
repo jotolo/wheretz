@@ -96,10 +96,13 @@ module WhereTZ
   end
 
   def inside_multipolygon?(multipolygon, point)
+    polygons(multipolygon).any? { |polygon| polygon.contains_point?(point) }
+  rescue Exception => e
     puts "INFORMATION:"
     puts multipolygon.inspect
     puts point.inspect
-    polygons(multipolygon).any? { |polygon| polygon.contains_point?(point) }
+    puts e.backtrace
+    raise
   end
 
   # Previously each timezones geojson always contained multypolygon, now it can be just
