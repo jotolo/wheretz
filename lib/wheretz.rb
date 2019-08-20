@@ -98,7 +98,9 @@ module WhereTZ
   def inside_multipolygon?(multipolygon, point)
     polygons(multipolygon).any? { |polygon| polygon.contains_point?(point) }
   rescue Exception => e
-    puts "INFORMATION:"
+    puts 'INFORMATION:'
+    puts multipolygon.inspect
+    puts '============'
     puts point.inspect
     puts e.backtrace
     raise
