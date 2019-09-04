@@ -1,7 +1,6 @@
 name: Rubocop Checks
 
 on: push
-
 jobs:
   rubocop_check:
     name: RuboCop Check
@@ -16,7 +15,7 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      - name: RuboCop Check
+      - name: RuboCop Checks
         uses: gimenete/rubocop-action@1.0
         env:
           GITHUB_TOKEN: ${{ secrets.MY_KEY }}
