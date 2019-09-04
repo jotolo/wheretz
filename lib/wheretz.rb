@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'geo_ruby'
 require 'geo_ruby/geojson'
 
