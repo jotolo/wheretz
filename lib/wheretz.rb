@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'geo_ruby'
 require 'geo_ruby/geojson'
 
@@ -95,7 +97,7 @@ module WhereTZ
 
   def inside_multipolygon?(multipolygon, point)
     polygons(multipolygon).any? { |polygon| polygon.contains_point?(point) }
-  rescue Exception => e
+  rescue StandardError => e
     puts 'INFORMATION:'
     puts multipolygon.inspect
     puts '============'
